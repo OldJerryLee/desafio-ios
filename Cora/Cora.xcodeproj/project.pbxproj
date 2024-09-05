@@ -9,23 +9,34 @@
 /* Begin PBXBuildFile section */
 		616007BE2C83A5B100C7FEA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616007BD2C83A5B100C7FEA8 /* AppDelegate.swift */; };
 		616007C02C83A5B100C7FEA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616007BF2C83A5B100C7FEA8 /* SceneDelegate.swift */; };
-		616007C22C83A5B100C7FEA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616007C12C83A5B100C7FEA8 /* ViewController.swift */; };
-		616007C52C83A5B100C7FEA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616007C32C83A5B100C7FEA8 /* Main.storyboard */; };
 		616007C72C83A5B200C7FEA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616007C62C83A5B200C7FEA8 /* Assets.xcassets */; };
 		616007CA2C83A5B200C7FEA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616007C82C83A5B200C7FEA8 /* LaunchScreen.storyboard */; };
+		61A6AC162C8936A2004CACA7 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC152C8936A2004CACA7 /* CustomFont.swift */; };
+		61A6AC272C8944D9004CACA7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC262C8944D9004CACA7 /* UIColor+Extension.swift */; };
+		61A6AC292C89454C004CACA7 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC282C89454C004CACA7 /* AppColors.swift */; };
 		61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */; };
+		61F43AA32C83A96500CFFB33 /* IntroscreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AA22C83A96500CFFB33 /* IntroscreenView.swift */; };
+		61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */; };
+		61F43AAD2C85226800CFFB33 /* DocumentScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AAC2C85226800CFFB33 /* DocumentScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		616007BA2C83A5B100C7FEA8 /* Cora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616007BD2C83A5B100C7FEA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		616007BF2C83A5B100C7FEA8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		616007C12C83A5B100C7FEA8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		616007C42C83A5B100C7FEA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		616007C62C83A5B200C7FEA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		616007C92C83A5B200C7FEA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		616007CB2C83A5B200C7FEA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61A6AC152C8936A2004CACA7 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		61A6AC1C2C89375B004CACA7 /* AvenirLTStd-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Heavy.otf"; sourceTree = "<group>"; };
+		61A6AC1F2C89375B004CACA7 /* AvenirLTStd-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Medium.otf"; sourceTree = "<group>"; };
+		61A6AC232C89375B004CACA7 /* AvenirLTStd-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirLTStd-Book.otf"; sourceTree = "<group>"; };
+		61A6AC262C8944D9004CACA7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		61A6AC282C89454C004CACA7 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoScreenViewController.swift; sourceTree = "<group>"; };
+		61F43AA22C83A96500CFFB33 /* IntroscreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroscreenView.swift; sourceTree = "<group>"; };
+		61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		61F43AAC2C85226800CFFB33 /* DocumentScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +69,111 @@
 		616007BC2C83A5B100C7FEA8 /* Cora */ = {
 			isa = PBXGroup;
 			children = (
+				61A6AC142C893681004CACA7 /* Utils */,
+				61F43AA52C8521CB00CFFB33 /* Password */,
+				61F43AA42C8521C200CFFB33 /* Document */,
+				61F43A9F2C83A8EA00CFFB33 /* Intro */,
 				616007BD2C83A5B100C7FEA8 /* AppDelegate.swift */,
 				616007BF2C83A5B100C7FEA8 /* SceneDelegate.swift */,
-				616007C12C83A5B100C7FEA8 /* ViewController.swift */,
-				616007C32C83A5B100C7FEA8 /* Main.storyboard */,
 				616007C62C83A5B200C7FEA8 /* Assets.xcassets */,
 				616007C82C83A5B200C7FEA8 /* LaunchScreen.storyboard */,
 				616007CB2C83A5B200C7FEA8 /* Info.plist */,
-				61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */,
 			);
 			path = Cora;
+			sourceTree = "<group>";
+		};
+		61A6AC142C893681004CACA7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC172C8936BE004CACA7 /* Fonts */,
+				61A6AC152C8936A2004CACA7 /* CustomFont.swift */,
+				61A6AC262C8944D9004CACA7 /* UIColor+Extension.swift */,
+				61A6AC282C89454C004CACA7 /* AppColors.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		61A6AC172C8936BE004CACA7 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC232C89375B004CACA7 /* AvenirLTStd-Book.otf */,
+				61A6AC1F2C89375B004CACA7 /* AvenirLTStd-Medium.otf */,
+				61A6AC1C2C89375B004CACA7 /* AvenirLTStd-Heavy.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		61F43A9F2C83A8EA00CFFB33 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AA12C83A92D00CFFB33 /* View */,
+				61F43AA02C83A92700CFFB33 /* ViewController */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		61F43AA02C83A92700CFFB33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		61F43AA12C83A92D00CFFB33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AA22C83A96500CFFB33 /* IntroscreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61F43AA42C8521C200CFFB33 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AA72C85222C00CFFB33 /* View */,
+				61F43AA62C85222200CFFB33 /* ViewController */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		61F43AA52C8521CB00CFFB33 /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AA82C85223300CFFB33 /* View */,
+				61F43AA92C85223900CFFB33 /* ViewController */,
+			);
+			path = Password;
+			sourceTree = "<group>";
+		};
+		61F43AA62C85222200CFFB33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		61F43AA72C85222C00CFFB33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61F43AAC2C85226800CFFB33 /* DocumentScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61F43AA82C85223300CFFB33 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61F43AA92C85223900CFFB33 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +236,6 @@
 			files = (
 				616007CA2C83A5B200C7FEA8 /* LaunchScreen.storyboard in Resources */,
 				616007C72C83A5B200C7FEA8 /* Assets.xcassets in Resources */,
-				616007C52C83A5B100C7FEA8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +246,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				616007C22C83A5B100C7FEA8 /* ViewController.swift in Sources */,
+				61A6AC292C89454C004CACA7 /* AppColors.swift in Sources */,
+				61A6AC162C8936A2004CACA7 /* CustomFont.swift in Sources */,
+				61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */,
 				616007BE2C83A5B100C7FEA8 /* AppDelegate.swift in Sources */,
 				61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */,
 				616007C02C83A5B100C7FEA8 /* SceneDelegate.swift in Sources */,
+				61F43AA32C83A96500CFFB33 /* IntroscreenView.swift in Sources */,
+				61F43AAD2C85226800CFFB33 /* DocumentScreenView.swift in Sources */,
+				61A6AC272C8944D9004CACA7 /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		616007C32C83A5B100C7FEA8 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				616007C42C83A5B100C7FEA8 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		616007C82C83A5B200C7FEA8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
