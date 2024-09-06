@@ -11,6 +11,7 @@ class PasswordViewController: UIViewController {
 
     var passwordScreen:PasswordScreenView?
     let userDefaultsManager = UserDefaultsManager()
+    private let viewModel: PasswordViewModel = PasswordViewModel()
     
     override func loadView() {
         self.passwordScreen = PasswordScreenView()
@@ -21,12 +22,15 @@ class PasswordViewController: UIViewController {
         super.viewDidLoad()
         self.passwordScreen?.delegate(delegate: self)
         self.passwordScreen?.configTextFieldDelegate(delegate: self)
-        
+        self.viewModel.delegate(delegate: self)
         setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         passwordScreen?.passwordTextField.becomeFirstResponder()
     }
     
@@ -85,6 +89,19 @@ class PasswordViewController: UIViewController {
     }
 }
 
+extension PasswordViewController: PasswordViewModelProtocol {
+    func success(token: String) {
+        userDefaultsManager.saveToken(token)
+        let viewController: StatementScreenViewController = StatementScreenViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    func error(message: String) {
+        print(message)
+    }
+}
+
+// MARK: - PasswordScreenDelegate
 extension PasswordViewController: PasswordScreenDelegate {
     func forgotPasswordButton() {
         print("Ir para Esqueci minha senha")
@@ -94,22 +111,24 @@ extension PasswordViewController: PasswordScreenDelegate {
         if let passwordString = passwordScreen?.passwordTextField.text {
             userDefaultsManager.savePassword(passwordString)
         }
-        let viewController: StatementScreenViewController = StatementScreenViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        
+        viewModel.fetchToken(document: userDefaultsManager.getCPF() ?? "",
+                             password: userDefaultsManager.getPassword() ?? "")
     }
 }
 
-extension PasswordViewController:UITextFieldDelegate{
+// MARK: - UITextFieldDelegate
+extension PasswordViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
 
-        if newText.count >= 6 {
+        if newText.count >= viewModel.passwordCharactersLimit {
             passwordScreen?.enableButton()
         } else {
             passwordScreen?.disableButton()
         }
 
-        return newText.count <= 6
+        return newText.count <= viewModel.passwordCharactersLimit
     }
 }

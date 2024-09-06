@@ -9,8 +9,9 @@ import UIKit
 
 class DocumentViewController: UIViewController {
 
-    var documentScreen:DocumentScreenView?
+    var documentScreen: DocumentScreenView?
     let userDefaultsManager = UserDefaultsManager()
+    private let viewModel: DocumentViewModel = DocumentViewModel()
     
     override func loadView() {
         self.documentScreen = DocumentScreenView()
@@ -26,6 +27,9 @@ class DocumentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         documentScreen?.documentTextField.becomeFirstResponder()
     }
     
@@ -38,7 +42,6 @@ class DocumentViewController: UIViewController {
                 NSAttributedString.Key.font: UIFont(name: CustomFont.avenir, size: 14),
                 NSAttributedString.Key.foregroundColor: UIColor.coraGrayText
         ]
-        
         
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
@@ -62,9 +65,7 @@ class DocumentViewController: UIViewController {
 
 extension DocumentViewController: DocumentScreenDelegate {
     func nextButton() {
-        if let cpfString = documentScreen?.documentTextField.text {
-            userDefaultsManager.saveCPF(cpfString)
-        }
+        userDefaultsManager.saveCPF(viewModel.getCPFNumbers())
         let viewController:PasswordViewController = PasswordViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -75,13 +76,14 @@ extension DocumentViewController:UITextFieldDelegate{
         let currentText = textField.text ?? ""
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
         
-        if newText.count > 14 {
+        if newText.count > viewModel.documentCharacterLimit {
             return false
         }
         
         let formattedText = newText.applyingCPFFormat()
         
         textField.text = formattedText
+        viewModel.setCPFNumbers(documentNumber: formattedText)
         
         if formattedText.isCPF {
             documentScreen?.enableButton()

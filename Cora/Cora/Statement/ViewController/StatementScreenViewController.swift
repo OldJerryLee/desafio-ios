@@ -15,9 +15,6 @@ class StatementScreenViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .coraPink
         // Do any additional setup after loading the view.
-        
-        print(userDefaultsManager.getCPF())
-        print(userDefaultsManager.getPassword())
     }
     
 
@@ -32,3 +29,5 @@ class StatementScreenViewController: UIViewController {
     */
 
 }
+
+//bf3f06390a035941138166583c1598c7

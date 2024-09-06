@@ -159,7 +159,7 @@ final class DocumentScreenView: UIView {
     @objc private func keyboardWillShow(_ notification: NSNotification) {
         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
             let keyboardHeight = keyboardFrame.height
-            loginButtonBottomConstraint?.constant = -keyboardHeight// - 16
+            loginButtonBottomConstraint?.constant = -keyboardHeight
             
             UIView.animate(withDuration: 0.3) {
                 self.layoutIfNeeded()

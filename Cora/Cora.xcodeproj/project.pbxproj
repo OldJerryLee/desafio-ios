@@ -20,6 +20,18 @@
 		61A6AC322C8B5EC0004CACA7 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC312C8B5EC0004CACA7 /* UserDefaultManager.swift */; };
 		61A6AC3A2C8B69E2004CACA7 /* StatementScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC392C8B69E2004CACA7 /* StatementScreenView.swift */; };
 		61A6AC3C2C8B69F4004CACA7 /* StatementScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC3B2C8B69F4004CACA7 /* StatementScreenViewController.swift */; };
+		61A6AC402C8B701C004CACA7 /* NetWorkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC3F2C8B701C004CACA7 /* NetWorkLogger.swift */; };
+		61A6AC422C8B705A004CACA7 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC412C8B705A004CACA7 /* NetworkError.swift */; };
+		61A6AC442C8B70AB004CACA7 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC432C8B70AB004CACA7 /* HTTPMethod.swift */; };
+		61A6AC462C8B70EE004CACA7 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC452C8B70EE004CACA7 /* NetworkLayer.swift */; };
+		61A6AC482C8B7105004CACA7 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC472C8B7105004CACA7 /* Endpoint.swift */; };
+		61A6AC4A2C8B712F004CACA7 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC492C8B712F004CACA7 /* RequestBuilder.swift */; };
+		61A6AC4C2C8B7156004CACA7 /* DefaultRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC4B2C8B7156004CACA7 /* DefaultRequestBuilder.swift */; };
+		61A6AC4E2C8B716F004CACA7 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC4D2C8B716F004CACA7 /* ServiceManager.swift */; };
+		61A6AC512C8B7CED004CACA7 /* DocumentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC502C8B7CED004CACA7 /* DocumentViewModel.swift */; };
+		61A6AC542C8B7F61004CACA7 /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC532C8B7F61004CACA7 /* PasswordViewModel.swift */; };
+		61A6AC572C8B80C2004CACA7 /* PasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC562C8B80C2004CACA7 /* PasswordService.swift */; };
+		61A6AC592C8B84EF004CACA7 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC582C8B84EF004CACA7 /* AuthResponse.swift */; };
 		61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */; };
 		61F43AA32C83A96500CFFB33 /* IntroScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AA22C83A96500CFFB33 /* IntroScreenView.swift */; };
 		61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */; };
@@ -45,6 +57,18 @@
 		61A6AC312C8B5EC0004CACA7 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		61A6AC392C8B69E2004CACA7 /* StatementScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementScreenView.swift; sourceTree = "<group>"; };
 		61A6AC3B2C8B69F4004CACA7 /* StatementScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementScreenViewController.swift; sourceTree = "<group>"; };
+		61A6AC3F2C8B701C004CACA7 /* NetWorkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetWorkLogger.swift; sourceTree = "<group>"; };
+		61A6AC412C8B705A004CACA7 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		61A6AC432C8B70AB004CACA7 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		61A6AC452C8B70EE004CACA7 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		61A6AC472C8B7105004CACA7 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
+		61A6AC492C8B712F004CACA7 /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
+		61A6AC4B2C8B7156004CACA7 /* DefaultRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRequestBuilder.swift; sourceTree = "<group>"; };
+		61A6AC4D2C8B716F004CACA7 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		61A6AC502C8B7CED004CACA7 /* DocumentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewModel.swift; sourceTree = "<group>"; };
+		61A6AC532C8B7F61004CACA7 /* PasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		61A6AC562C8B80C2004CACA7 /* PasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordService.swift; sourceTree = "<group>"; };
+		61A6AC582C8B84EF004CACA7 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoScreenViewController.swift; sourceTree = "<group>"; };
 		61F43AA22C83A96500CFFB33 /* IntroScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreenView.swift; sourceTree = "<group>"; };
 		61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +105,8 @@
 		616007BC2C83A5B100C7FEA8 /* Cora */ = {
 			isa = PBXGroup;
 			children = (
+				61A6AC3D2C8B6FC1004CACA7 /* Service */,
+				61A6AC3E2C8B6FCC004CACA7 /* Model */,
 				61A6AC142C893681004CACA7 /* Utils */,
 				61F43A9F2C83A8EA00CFFB33 /* Intro */,
 				61F43AA42C8521C200CFFB33 /* Document */,
@@ -175,6 +201,53 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		61A6AC3D2C8B6FC1004CACA7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC3F2C8B701C004CACA7 /* NetWorkLogger.swift */,
+				61A6AC412C8B705A004CACA7 /* NetworkError.swift */,
+				61A6AC432C8B70AB004CACA7 /* HTTPMethod.swift */,
+				61A6AC452C8B70EE004CACA7 /* NetworkLayer.swift */,
+				61A6AC472C8B7105004CACA7 /* Endpoint.swift */,
+				61A6AC492C8B712F004CACA7 /* RequestBuilder.swift */,
+				61A6AC4B2C8B7156004CACA7 /* DefaultRequestBuilder.swift */,
+				61A6AC4D2C8B716F004CACA7 /* ServiceManager.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		61A6AC3E2C8B6FCC004CACA7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC582C8B84EF004CACA7 /* AuthResponse.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		61A6AC4F2C8B7CBA004CACA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC502C8B7CED004CACA7 /* DocumentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		61A6AC522C8B7F4D004CACA7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC532C8B7F61004CACA7 /* PasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		61A6AC552C8B80AD004CACA7 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC562C8B80C2004CACA7 /* PasswordService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		61F43A9F2C83A8EA00CFFB33 /* Intro */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +276,7 @@
 		61F43AA42C8521C200CFFB33 /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				61A6AC4F2C8B7CBA004CACA7 /* ViewModel */,
 				61F43AA72C85222C00CFFB33 /* View */,
 				61F43AA62C85222200CFFB33 /* ViewController */,
 			);
@@ -212,6 +286,8 @@
 		61F43AA52C8521CB00CFFB33 /* Password */ = {
 			isa = PBXGroup;
 			children = (
+				61A6AC552C8B80AD004CACA7 /* Service */,
+				61A6AC522C8B7F4D004CACA7 /* ViewModel */,
 				61F43AA82C85223300CFFB33 /* View */,
 				61F43AA92C85223900CFFB33 /* ViewController */,
 			);
@@ -320,18 +396,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A6AC4A2C8B712F004CACA7 /* RequestBuilder.swift in Sources */,
+				61A6AC422C8B705A004CACA7 /* NetworkError.swift in Sources */,
 				61A6AC292C89454C004CACA7 /* AppColors.swift in Sources */,
+				61A6AC4E2C8B716F004CACA7 /* ServiceManager.swift in Sources */,
+				61A6AC542C8B7F61004CACA7 /* PasswordViewModel.swift in Sources */,
+				61A6AC462C8B70EE004CACA7 /* NetworkLayer.swift in Sources */,
+				61A6AC512C8B7CED004CACA7 /* DocumentViewModel.swift in Sources */,
 				61A6AC2D2C8A469F004CACA7 /* PasswordScreenView.swift in Sources */,
+				61A6AC4C2C8B7156004CACA7 /* DefaultRequestBuilder.swift in Sources */,
+				61A6AC592C8B84EF004CACA7 /* AuthResponse.swift in Sources */,
 				61A6AC3A2C8B69E2004CACA7 /* StatementScreenView.swift in Sources */,
 				61A6AC162C8936A2004CACA7 /* CustomFont.swift in Sources */,
 				61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */,
+				61A6AC572C8B80C2004CACA7 /* PasswordService.swift in Sources */,
 				616007BE2C83A5B100C7FEA8 /* AppDelegate.swift in Sources */,
 				61A6AC2F2C8A46B7004CACA7 /* PasswordViewController.swift in Sources */,
 				61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */,
+				61A6AC402C8B701C004CACA7 /* NetWorkLogger.swift in Sources */,
 				616007C02C83A5B100C7FEA8 /* SceneDelegate.swift in Sources */,
 				61F43AA32C83A96500CFFB33 /* IntroScreenView.swift in Sources */,
 				61A6AC322C8B5EC0004CACA7 /* UserDefaultManager.swift in Sources */,
+				61A6AC482C8B7105004CACA7 /* Endpoint.swift in Sources */,
 				61F43AAD2C85226800CFFB33 /* DocumentScreenView.swift in Sources */,
+				61A6AC442C8B70AB004CACA7 /* HTTPMethod.swift in Sources */,
 				61A6AC2B2C8A4336004CACA7 /* String+Extension.swift in Sources */,
 				61A6AC272C8944D9004CACA7 /* UIColor+Extension.swift in Sources */,
 				61A6AC3C2C8B69F4004CACA7 /* StatementScreenViewController.swift in Sources */,
