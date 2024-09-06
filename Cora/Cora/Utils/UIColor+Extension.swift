@@ -28,7 +28,6 @@ extension UIColor {
         let start = hex.index(hex.startIndex, offsetBy: 1)
         var hexColor = String(hex[start...])
 
-        // Adding the color differenciation
         if hexColor.count == 5 {
             hexColor += "0"
         }

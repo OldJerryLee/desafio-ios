@@ -1,32 +1,32 @@
 //
-//  DocumentViewController.swift
+//  PasswordViewController.swift
 //  Cora
 //
-//  Created by Fabricio Pujol on 01/09/24.
+//  Created by Fabricio Pujol on 05/09/24.
 //
 
 import UIKit
 
-class DocumentViewController: UIViewController {
+class PasswordViewController: UIViewController {
 
-    var documentScreen:DocumentScreenView?
+    var passwordScreen:PasswordScreenView?
     
     override func loadView() {
-        self.documentScreen = DocumentScreenView()
-        self.view = self.documentScreen
+        self.passwordScreen = PasswordScreenView()
+        self.view = self.passwordScreen
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.documentScreen?.delegate(delegate: self)
-        self.documentScreen?.configTextFieldDelegate(delegate: self)
+        self.passwordScreen?.delegate(delegate: self)
+        self.passwordScreen?.configTextFieldDelegate(delegate: self)
         
         setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        documentScreen?.documentTextField.becomeFirstResponder()
+        passwordScreen?.passwordTextField.becomeFirstResponder()
     }
     
     private func setupNavigationBar() {
@@ -38,7 +38,6 @@ class DocumentViewController: UIViewController {
                 NSAttributedString.Key.font: UIFont(name: CustomFont.avenir, size: 14),
                 NSAttributedString.Key.foregroundColor: UIColor.coraGrayText
         ]
-        
         
         self.navigationItem.standardAppearance = appearance
         self.navigationItem.scrollEdgeAppearance = appearance
@@ -56,8 +55,8 @@ class DocumentViewController: UIViewController {
     }
     
 //    private func setupNavigationBarItems() {
-//        
-//        
+//
+//
 //        setupLeftNavigationBar()
 //        setupRightNavigationBar()
 //    }
@@ -65,18 +64,18 @@ class DocumentViewController: UIViewController {
 //    private func setupLeftNavigationBar() {
 //        let lockButton = UIButton(type: .system)
 //        lockButton.setImage(UIImage(named: "secure-cloud-50.png"), for: .normal)
-//        
+//
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: lockButton)
 //    }
-//    
+//
 //    private func setupRightNavigationBar() {
 //        let rebelButton = UIButton(type: .system)
 //        rebelButton.setImage(UIImage(named: "sw-rebel-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//        
+//
 //        let empireButton = UIButton(type: .system)
 //        empireButton.setImage(UIImage(named: "sw-empire-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//        
-//        
+//
+//
 //        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rebelButton), UIBarButtonItem(customView: empireButton)]
 //    }
     
@@ -85,35 +84,29 @@ class DocumentViewController: UIViewController {
     }
 }
 
-extension DocumentViewController: DocumentScreenDelegate {
+extension PasswordViewController: PasswordScreenDelegate {
+    func forgotPasswordButton() {
+        print("Ir para Esqueci minha senha")
+    }
+    
     func nextButton() {
-        print("Ir para senha")
+        print("Ir para Extrato")
         //Salvar documento no user default
         //Ir para tela de Senha.
-        let viewController:PasswordViewController = PasswordViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 
-extension DocumentViewController:UITextFieldDelegate{
+extension PasswordViewController:UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)
-        
-        if newText.count > 14 {
-            return false
-        }
-        
-        let formattedText = newText.applyingCPFFormat()
-        
-        textField.text = formattedText
-        
-        if formattedText.isCPF {
-            documentScreen?.enableButton()
+
+        if newText.count >= 6 {
+            passwordScreen?.enableButton()
         } else {
-            documentScreen?.disableButton()
+            passwordScreen?.disableButton()
         }
-        
-        return false
+
+        return newText.count <= 6
     }
 }

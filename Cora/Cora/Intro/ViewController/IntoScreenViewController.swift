@@ -9,10 +9,10 @@ import UIKit
 
 class IntoScreenViewController: UIViewController {
     
-    var introScreen:IntroscreenView?
+    var introScreen:IntroScreenView?
     
     override func loadView() {
-        self.introScreen = IntroscreenView()
+        self.introScreen = IntroScreenView()
         self.view = self.introScreen
     }
 
@@ -28,7 +28,6 @@ class IntoScreenViewController: UIViewController {
 
 extension IntoScreenViewController: LoginScreenDelegate {
     func signupIntroButton() {
-        //TODO: Not mentioned on figma.
         print("Ir para Registrar")
     }
     

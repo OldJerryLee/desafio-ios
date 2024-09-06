@@ -1,5 +1,5 @@
 //
-//  IntroscreenView.swift
+//  IntroScreenView.swift
 //  Cora
 //
 //  Created by Fabricio Pujol on 31/08/24.
@@ -12,7 +12,7 @@ protocol LoginScreenDelegate:AnyObject{
     func loginIntroButton()
 }
 
-final class IntroscreenView: UIView {
+final class IntroScreenView: UIView {
     
     private weak var delegate:LoginScreenDelegate?
     
@@ -149,7 +149,7 @@ final class IntroscreenView: UIView {
             self.introAppImageView.topAnchor.constraint(equalTo: self.topAnchor),
             self.introAppImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.introAppImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.introAppImageView.heightAnchor.constraint(equalToConstant: 416),
+            self.introAppImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4934),
             
             self.introAppLogoImageView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             self.introAppLogoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),

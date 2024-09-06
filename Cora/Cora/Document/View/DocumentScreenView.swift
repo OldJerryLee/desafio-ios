@@ -1,3 +1,10 @@
+//
+//  DocumentScreenView.swift
+//  Cora
+//
+//  Created by Fabricio Pujol on 01/09/24.
+//
+
 import UIKit
 
 protocol DocumentScreenDelegate: AnyObject {
@@ -5,26 +12,6 @@ protocol DocumentScreenDelegate: AnyObject {
 }
 
 final class DocumentScreenView: UIView {
-    
-    private weak var delegate: DocumentScreenDelegate?
-    
-    func delegate(delegate: DocumentScreenDelegate?) {
-        self.delegate = delegate
-    }
-    
-    private var loginButtonBottomConstraint: NSLayoutConstraint?
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.configBackGround()
-        self.configSuperView()
-        self.setUpConstraints()
-        self.registerForKeyboardNotifications()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     lazy var documentTitleLabel: UILabel = {
         let label = UILabel()
@@ -89,14 +76,33 @@ final class DocumentScreenView: UIView {
         stack.layer.cornerRadius = 12
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedLoginButton))
         stack.addGestureRecognizer(tapGesture)
-        
         stack.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()
     
+    private weak var delegate: DocumentScreenDelegate?
+    private var loginButtonBottomConstraint: NSLayoutConstraint?
+    
+    func delegate(delegate: DocumentScreenDelegate?) {
+        self.delegate = delegate
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.configBackGround()
+        self.configSuperView()
+        self.setUpConstraints()
+        self.registerForKeyboardNotifications()
+        self.disableButton()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private func configBackGround() {
-        self.backgroundColor = .white
+        self.backgroundColor = .coraWhite
     }
     
     private func configSuperView() {
@@ -108,10 +114,6 @@ final class DocumentScreenView: UIView {
     
     public func configTextFieldDelegate(delegate: UITextFieldDelegate) {
         self.documentTextField.delegate = delegate
-    }
-    
-    @objc private func tappedLoginButton() {
-        self.delegate?.nextButton()
     }
     
     private func setUpConstraints() {
@@ -138,8 +140,17 @@ final class DocumentScreenView: UIView {
         self.loginButtonBottomConstraint?.isActive = true
     }
     
-    // MARK: - Keyboard Handling
+    func enableButton() {
+        loginIntroButtonStack.isUserInteractionEnabled = true
+        loginIntroButtonStack.backgroundColor = .coraPink
+    }
     
+    func disableButton() {
+        loginIntroButtonStack.isUserInteractionEnabled = false
+        loginIntroButtonStack.backgroundColor = .coraDisableButtonGray
+    }
+    
+    // MARK: - Keyboard Handling
     private func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -162,6 +173,10 @@ final class DocumentScreenView: UIView {
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
+    }
+    
+    @objc private func tappedLoginButton() {
+        self.delegate?.nextButton()
     }
     
     deinit {
