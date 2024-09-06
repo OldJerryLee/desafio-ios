@@ -10,6 +10,7 @@ import UIKit
 class DocumentViewController: UIViewController {
 
     var documentScreen:DocumentScreenView?
+    let userDefaultsManager = UserDefaultsManager()
     
     override func loadView() {
         self.documentScreen = DocumentScreenView()
@@ -20,7 +21,6 @@ class DocumentViewController: UIViewController {
         super.viewDidLoad()
         self.documentScreen?.delegate(delegate: self)
         self.documentScreen?.configTextFieldDelegate(delegate: self)
-        
         setupNavigationBar()
     }
     
@@ -54,32 +54,7 @@ class DocumentViewController: UIViewController {
         let backBarButtonItem = UIBarButtonItem(customView: customBackButton)
         navigationItem.leftBarButtonItem = backBarButtonItem
     }
-    
-//    private func setupNavigationBarItems() {
-//        
-//        
-//        setupLeftNavigationBar()
-//        setupRightNavigationBar()
-//    }
-    
-//    private func setupLeftNavigationBar() {
-//        let lockButton = UIButton(type: .system)
-//        lockButton.setImage(UIImage(named: "secure-cloud-50.png"), for: .normal)
-//        
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: lockButton)
-//    }
-//    
-//    private func setupRightNavigationBar() {
-//        let rebelButton = UIButton(type: .system)
-//        rebelButton.setImage(UIImage(named: "sw-rebel-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//        
-//        let empireButton = UIButton(type: .system)
-//        empireButton.setImage(UIImage(named: "sw-empire-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//        
-//        
-//        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rebelButton), UIBarButtonItem(customView: empireButton)]
-//    }
-    
+
     @objc private func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
@@ -87,9 +62,9 @@ class DocumentViewController: UIViewController {
 
 extension DocumentViewController: DocumentScreenDelegate {
     func nextButton() {
-        print("Ir para senha")
-        //Salvar documento no user default
-        //Ir para tela de Senha.
+        if let cpfString = documentScreen?.documentTextField.text {
+            userDefaultsManager.saveCPF(cpfString)
+        }
         let viewController:PasswordViewController = PasswordViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }

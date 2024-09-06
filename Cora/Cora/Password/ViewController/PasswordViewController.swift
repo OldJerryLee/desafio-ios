@@ -10,6 +10,7 @@ import UIKit
 class PasswordViewController: UIViewController {
 
     var passwordScreen:PasswordScreenView?
+    let userDefaultsManager = UserDefaultsManager()
     
     override func loadView() {
         self.passwordScreen = PasswordScreenView()
@@ -90,9 +91,11 @@ extension PasswordViewController: PasswordScreenDelegate {
     }
     
     func nextButton() {
-        print("Ir para Extrato")
-        //Salvar documento no user default
-        //Ir para tela de Senha.
+        if let passwordString = passwordScreen?.passwordTextField.text {
+            userDefaultsManager.savePassword(passwordString)
+        }
+        let viewController: StatementScreenViewController = StatementScreenViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 

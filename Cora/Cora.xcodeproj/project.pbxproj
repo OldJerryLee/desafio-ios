@@ -17,6 +17,9 @@
 		61A6AC2B2C8A4336004CACA7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC2A2C8A4336004CACA7 /* String+Extension.swift */; };
 		61A6AC2D2C8A469F004CACA7 /* PasswordScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC2C2C8A469F004CACA7 /* PasswordScreenView.swift */; };
 		61A6AC2F2C8A46B7004CACA7 /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC2E2C8A46B7004CACA7 /* PasswordViewController.swift */; };
+		61A6AC322C8B5EC0004CACA7 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC312C8B5EC0004CACA7 /* UserDefaultManager.swift */; };
+		61A6AC3A2C8B69E2004CACA7 /* StatementScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC392C8B69E2004CACA7 /* StatementScreenView.swift */; };
+		61A6AC3C2C8B69F4004CACA7 /* StatementScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A6AC3B2C8B69F4004CACA7 /* StatementScreenViewController.swift */; };
 		61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */; };
 		61F43AA32C83A96500CFFB33 /* IntroScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AA22C83A96500CFFB33 /* IntroScreenView.swift */; };
 		61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */; };
@@ -39,6 +42,9 @@
 		61A6AC2A2C8A4336004CACA7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		61A6AC2C2C8A469F004CACA7 /* PasswordScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordScreenView.swift; sourceTree = "<group>"; };
 		61A6AC2E2C8A46B7004CACA7 /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
+		61A6AC312C8B5EC0004CACA7 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		61A6AC392C8B69E2004CACA7 /* StatementScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementScreenView.swift; sourceTree = "<group>"; };
+		61A6AC3B2C8B69F4004CACA7 /* StatementScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementScreenViewController.swift; sourceTree = "<group>"; };
 		61F43A9D2C83A72D00CFFB33 /* IntoScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntoScreenViewController.swift; sourceTree = "<group>"; };
 		61F43AA22C83A96500CFFB33 /* IntroScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreenView.swift; sourceTree = "<group>"; };
 		61F43AAA2C85225300CFFB33 /* DocumentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
@@ -76,9 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				61A6AC142C893681004CACA7 /* Utils */,
-				61F43AA52C8521CB00CFFB33 /* Password */,
-				61F43AA42C8521C200CFFB33 /* Document */,
 				61F43A9F2C83A8EA00CFFB33 /* Intro */,
+				61F43AA42C8521C200CFFB33 /* Document */,
+				61F43AA52C8521CB00CFFB33 /* Password */,
+				61A6AC332C8B6949004CACA7 /* Statement */,
+				61A6AC342C8B698C004CACA7 /* Detail */,
 				616007BD2C83A5B100C7FEA8 /* AppDelegate.swift */,
 				616007BF2C83A5B100C7FEA8 /* SceneDelegate.swift */,
 				616007C62C83A5B200C7FEA8 /* Assets.xcassets */,
@@ -91,6 +99,7 @@
 		61A6AC142C893681004CACA7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				61A6AC302C8B5EA8004CACA7 /* UserDefault */,
 				61A6AC172C8936BE004CACA7 /* Fonts */,
 				61A6AC282C89454C004CACA7 /* AppColors.swift */,
 				61A6AC152C8936A2004CACA7 /* CustomFont.swift */,
@@ -108,6 +117,62 @@
 				61A6AC1C2C89375B004CACA7 /* AvenirLTStd-Heavy.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		61A6AC302C8B5EA8004CACA7 /* UserDefault */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC312C8B5EC0004CACA7 /* UserDefaultManager.swift */,
+			);
+			path = UserDefault;
+			sourceTree = "<group>";
+		};
+		61A6AC332C8B6949004CACA7 /* Statement */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC352C8B699C004CACA7 /* View */,
+				61A6AC362C8B69A2004CACA7 /* ViewController */,
+			);
+			path = Statement;
+			sourceTree = "<group>";
+		};
+		61A6AC342C8B698C004CACA7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC372C8B69AC004CACA7 /* View */,
+				61A6AC382C8B69B0004CACA7 /* ViewController */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		61A6AC352C8B699C004CACA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC392C8B69E2004CACA7 /* StatementScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61A6AC362C8B69A2004CACA7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				61A6AC3B2C8B69F4004CACA7 /* StatementScreenViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		61A6AC372C8B69AC004CACA7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		61A6AC382C8B69B0004CACA7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		61F43A9F2C83A8EA00CFFB33 /* Intro */ = {
@@ -257,6 +322,7 @@
 			files = (
 				61A6AC292C89454C004CACA7 /* AppColors.swift in Sources */,
 				61A6AC2D2C8A469F004CACA7 /* PasswordScreenView.swift in Sources */,
+				61A6AC3A2C8B69E2004CACA7 /* StatementScreenView.swift in Sources */,
 				61A6AC162C8936A2004CACA7 /* CustomFont.swift in Sources */,
 				61F43AAB2C85225300CFFB33 /* DocumentViewController.swift in Sources */,
 				616007BE2C83A5B100C7FEA8 /* AppDelegate.swift in Sources */,
@@ -264,9 +330,11 @@
 				61F43A9E2C83A72D00CFFB33 /* IntoScreenViewController.swift in Sources */,
 				616007C02C83A5B100C7FEA8 /* SceneDelegate.swift in Sources */,
 				61F43AA32C83A96500CFFB33 /* IntroScreenView.swift in Sources */,
+				61A6AC322C8B5EC0004CACA7 /* UserDefaultManager.swift in Sources */,
 				61F43AAD2C85226800CFFB33 /* DocumentScreenView.swift in Sources */,
 				61A6AC2B2C8A4336004CACA7 /* String+Extension.swift in Sources */,
 				61A6AC272C8944D9004CACA7 /* UIColor+Extension.swift in Sources */,
+				61A6AC3C2C8B69F4004CACA7 /* StatementScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
