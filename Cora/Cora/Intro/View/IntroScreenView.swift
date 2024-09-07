@@ -14,6 +14,97 @@ protocol LoginScreenDelegate:AnyObject{
 
 final class IntroScreenView: UIView {
     
+    private lazy var introAppImageView:UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "introImage")
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    private lazy var introAppLogoImageView:UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "introLogo")
+        image.tintColor = .green
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    private lazy var introTitleBoldLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .coraWhite
+        label.font = UIFont(name: CustomFont.avenirBold, size: 28)
+        label.text = "Conta Digital PJ"
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var introTitleLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .coraWhite
+        label.font = UIFont(name: CustomFont.avenirRegular, size: 28)
+        label.text = "Poderosamente simples"
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var introSubtitleLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .coraWhite
+        label.font = UIFont(name: CustomFont.avenirRegular, size: 16)
+        label.text = "Sua empresa livre burocracias e de taxas para gerar boletos, fazer transferências e pagamentos."
+        label.numberOfLines = 3
+        return label
+    }()
+    
+    private lazy var registerButtonLabel:UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .coraPink
+        label.font = UIFont(name: CustomFont.avenirBold, size: 16)
+        label.text = "Quero fazer parte!"
+        label.numberOfLines = 1
+        return label
+    }()
+    
+    private lazy var registerButtonImage:UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "rightVector")
+        image.contentMode = .scaleAspectFill
+        return image
+    }()
+    
+    private lazy var registerIntroButtonStack: UIStackView = {
+        let stack = UIStackView(arrangedSubviews: [registerButtonLabel, UIView(),registerButtonImage])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.distribution = .fill
+        stack.alignment = .center
+        stack.backgroundColor = .coraWhite
+        stack.layer.cornerRadius = 16
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRegisterButton))
+        stack.addGestureRecognizer(tapGesture)
+        
+        stack.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        stack.isLayoutMarginsRelativeArrangement = true
+        return stack
+    }()
+    
+    private lazy var loginIntroButton:UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Já sou cliente", for: .normal)
+        button.titleLabel?.font = UIFont(name: CustomFont.avenirBold, size: 14)
+        button.setTitleColor(.coraWhite, for: .normal)
+        button.addTarget(self, action: #selector(self.tappedLoginButton), for: .touchUpInside)
+        return button
+    }()
+    
     private weak var delegate:LoginScreenDelegate?
     
     func delegate(delegate:LoginScreenDelegate?){
@@ -31,97 +122,6 @@ final class IntroScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var introAppImageView:UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "introImage")
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
-    
-    lazy var introAppLogoImageView:UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "introLogo")
-        image.tintColor = .green
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    lazy var introTitleBoldLabel:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .coraWhite
-        label.font = UIFont(name: CustomFont.avenirBold, size: 28)
-        label.text = "Conta Digital PJ"
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    lazy var introTitleLabel:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .coraWhite
-        label.font = UIFont(name: CustomFont.avenirRegular, size: 28)
-        label.text = "Poderosamente simples"
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    lazy var introSubtitleLabel:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .coraWhite
-        label.font = UIFont(name: CustomFont.avenirRegular, size: 16)
-        label.text = "Sua empresa livre burocracias e de taxas para gerar boletos, fazer transferências e pagamentos."
-        label.numberOfLines = 3
-        return label
-    }()
-    
-    lazy var registerButtonLabel:UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .coraPink
-        label.font = UIFont(name: CustomFont.avenirBold, size: 16)
-        label.text = "Quero fazer parte!"
-        label.numberOfLines = 1
-        return label
-    }()
-    
-    lazy var registerButtonImage:UIImageView = {
-        let image = UIImageView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "rightVector")
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
-    
-    lazy var registerIntroButtonStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [registerButtonLabel, UIView(),registerButtonImage])
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.axis = .horizontal
-        stack.distribution = .fill
-        stack.alignment = .center
-        stack.backgroundColor = .coraWhite
-        stack.layer.cornerRadius = 16
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRegisterButton))
-        stack.addGestureRecognizer(tapGesture)
-        
-        stack.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
-        stack.isLayoutMarginsRelativeArrangement = true
-        return stack
-    }()
-    
-    lazy var loginIntroButton:UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Já sou cliente", for: .normal)
-        button.titleLabel?.font = UIFont(name: CustomFont.avenirBold, size: 14)
-        button.setTitleColor(.coraWhite, for: .normal)
-        button.addTarget(self, action: #selector(self.tappedLoginButton), for: .touchUpInside)
-        return button
-    }()
-    
     private func configBackGround(){
         self.backgroundColor = .coraPink
     }
@@ -134,14 +134,6 @@ final class IntroScreenView: UIView {
         self.addSubview(self.introSubtitleLabel)
         self.addSubview(self.registerIntroButtonStack)
         self.addSubview(self.loginIntroButton)
-    }
-    
-    @objc private func tappedLoginButton(){
-        self.delegate?.loginIntroButton()
-    }
-    
-    @objc private func tappedRegisterButton(){
-        self.delegate?.signupIntroButton()
     }
     
     private func setUpContraints(){
@@ -177,5 +169,13 @@ final class IntroScreenView: UIView {
             self.registerIntroButtonStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
             self.registerIntroButtonStack.heightAnchor.constraint(equalToConstant: 64),
         ])
+    }
+    
+    @objc private func tappedLoginButton(){
+        self.delegate?.loginIntroButton()
+    }
+    
+    @objc private func tappedRegisterButton(){
+        self.delegate?.signupIntroButton()
     }
 }

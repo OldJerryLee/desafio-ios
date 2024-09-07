@@ -12,7 +12,7 @@ protocol StatementViewModelProtocol: AnyObject {
     func error(message: String)
 }
 
-class StatementViewModel {
+final class StatementViewModel {
     
     private var service: StatementService = StatementService()
     private weak var delegate: StatementViewModelProtocol?

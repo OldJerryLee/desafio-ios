@@ -13,7 +13,7 @@ protocol DocumentScreenDelegate: AnyObject {
 
 final class DocumentScreenView: UIView {
     
-    lazy var documentTitleLabel: UILabel = {
+    private lazy var documentTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -24,7 +24,7 @@ final class DocumentScreenView: UIView {
         return label
     }()
     
-    lazy var documentSubtitleLabel: UILabel = {
+    private lazy var documentSubtitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -47,7 +47,7 @@ final class DocumentScreenView: UIView {
         return tf
     }()
     
-    lazy var loginIntroButtonLabel:UILabel = {
+    private lazy var loginIntroButtonLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraWhite
@@ -57,7 +57,7 @@ final class DocumentScreenView: UIView {
         return label
     }()
     
-    lazy var loginIntroButtonImage:UIImageView = {
+    private lazy var loginIntroButtonImage:UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "rightVector")?.withRenderingMode(.alwaysTemplate)
@@ -66,7 +66,7 @@ final class DocumentScreenView: UIView {
         return image
     }()
     
-    lazy var loginIntroButtonStack: UIStackView = {
+    private lazy var loginIntroButtonStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [loginIntroButtonLabel, UIView(),loginIntroButtonImage])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal

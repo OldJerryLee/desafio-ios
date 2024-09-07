@@ -14,7 +14,7 @@ protocol StatementScreenViewDelegate: AnyObject {
 
 final class StatementScreenView: UIView {
     
-    lazy var allStatementsButton:UIButton = {
+    private lazy var allStatementsButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Tudo", for: .normal)
@@ -24,7 +24,7 @@ final class StatementScreenView: UIView {
         return button
     }()
     
-    lazy var inStatementsButton:UIButton = {
+    private lazy var inStatementsButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Entrada", for: .normal)
@@ -34,7 +34,7 @@ final class StatementScreenView: UIView {
         return button
     }()
     
-    lazy var outStatementsButton:UIButton = {
+    private lazy var outStatementsButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Saída", for: .normal)
@@ -44,7 +44,7 @@ final class StatementScreenView: UIView {
         return button
     }()
     
-    lazy var futureStatementsButton:UIButton = {
+    private lazy var futureStatementsButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Futuro", for: .normal)
@@ -54,7 +54,7 @@ final class StatementScreenView: UIView {
         return button
     }()
     
-    lazy var filterStatementsButton:UIButton = {
+    private lazy var filterStatementsButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ic_filter")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -64,7 +64,7 @@ final class StatementScreenView: UIView {
         return button
     }()
     
-    lazy var filterButtonsStack: UIStackView = {
+    private lazy var filterButtonsStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [allStatementsButton,
                                                    inStatementsButton,
                                                    outStatementsButton,

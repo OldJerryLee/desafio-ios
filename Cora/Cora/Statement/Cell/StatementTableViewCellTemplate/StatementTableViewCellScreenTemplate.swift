@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatementTableViewCellScreenTemplate: UIView {
+final class StatementTableViewCellScreenTemplate: UIView {
     
     lazy var bigTemplateView: UIView = {
         let view = UIView()

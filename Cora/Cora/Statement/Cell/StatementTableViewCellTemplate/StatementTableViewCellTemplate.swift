@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatementTableViewCellTemplate: UITableViewCell {
+final class StatementTableViewCellTemplate: UITableViewCell {
     
     static let identifier: String = "StatementTableViewCellTemplate"
 

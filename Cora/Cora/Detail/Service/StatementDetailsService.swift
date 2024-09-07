@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StatementDetailsService {
+final class StatementDetailsService {
     func getStatementDetails(id: String,token: String,completion: @escaping (Result<StatementDetailsResponse,NetworkError>) -> Void) {
         let urlString: String = "https://api.challenge.stage.cora.com.br/challenge/details/:\(id)"
         let endpoint = Endpoint(url: urlString,

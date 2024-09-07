@@ -12,7 +12,7 @@ protocol StatementDetailsViewModelProtocol: AnyObject {
     func error(message: String)
 }
 
-class StatementDetailsViewModel {
+final class StatementDetailsViewModel {
     
     private var service: StatementDetailsService = StatementDetailsService()
     var statemenDetails: StatementDetailsResponse?

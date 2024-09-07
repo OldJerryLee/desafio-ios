@@ -7,10 +7,10 @@
 
 import UIKit
 
-class StatementScreenViewController: UIViewController {
+final class StatementScreenViewController: UIViewController {
 
-    var statementScreen: StatementScreenView?
-    let userDefaultsManager = UserDefaultsManager()
+    private var statementScreen: StatementScreenView?
+    private let userDefaultsManager = UserDefaultsManager()
     private let viewModel: StatementViewModel = StatementViewModel()
     
     override func loadView() {
@@ -195,5 +195,3 @@ extension StatementScreenViewController: UITableViewDelegate, UITableViewDataSou
         return viewModel.numberOfSections
     }
 }
-
-//393.147.910-25

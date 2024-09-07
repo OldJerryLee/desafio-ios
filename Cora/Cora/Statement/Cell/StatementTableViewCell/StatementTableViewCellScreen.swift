@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StatementTableViewCellScreen: UIView {
+final class StatementTableViewCellScreen: UIView {
     
     lazy var statementTypeImage:UIImageView = {
         let image = UIImageView()

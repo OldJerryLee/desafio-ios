@@ -31,19 +31,19 @@ final class StatementDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var scrollView: UIScrollView = {
+    private lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    lazy var contentView: UIView = {
+    private lazy var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    lazy var statementDetailImage: UIImageView = {
+    private lazy var statementDetailImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "ic_arrow-up-out")
@@ -51,7 +51,7 @@ final class StatementDetailsView: UIView {
         return image
     }()
     
-    lazy var statementTitleBoldLabel: UILabel = {
+    private lazy var statementTitleBoldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -61,7 +61,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementValueTitleLabel: UILabel = {
+    private lazy var statementValueTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -71,7 +71,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementValueLabel: UILabel = {
+    private lazy var statementValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -81,7 +81,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDateTitleLabel: UILabel = {
+    private lazy var statementDateTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -91,7 +91,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDateLabel: UILabel = {
+    private lazy var statementDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -101,7 +101,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromTitleLabel: UILabel = {
+    private lazy var statementFromTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -111,7 +111,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromLabel: UILabel = {
+    private lazy var statementFromLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -121,7 +121,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromDocumentLabel: UILabel = {
+    private lazy var statementFromDocumentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -131,7 +131,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromBankLabel: UILabel = {
+    private lazy var statementFromBankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -141,7 +141,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromAccountLabel: UILabel = {
+    private lazy var statementFromAccountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -151,7 +151,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToTitleLabel: UILabel = {
+    private lazy var statementToTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -161,7 +161,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToLabel: UILabel = {
+    private lazy var statementToLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -171,7 +171,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToDocumentLabel: UILabel = {
+    private lazy var statementToDocumentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -181,7 +181,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToBankLabel: UILabel = {
+    private lazy var statementToBankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -191,7 +191,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToAccountLabel: UILabel = {
+    private lazy var statementToAccountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -201,7 +201,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDescriptionTitleLabel: UILabel = {
+    private lazy var statementDescriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -211,7 +211,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDescriptionLabel: UILabel = {
+    private lazy var statementDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -221,7 +221,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var shareButtonLabel: UILabel = {
+    private lazy var shareButtonLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraWhite
@@ -231,7 +231,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var shareButtonImage: UIImageView = {
+    private lazy var shareButtonImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "ic_share-ios")
@@ -239,7 +239,7 @@ final class StatementDetailsView: UIView {
         return image
     }()
     
-    lazy var shareIntroButtonStack: UIStackView = {
+    private lazy var shareIntroButtonStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [shareButtonLabel, UIView(), shareButtonImage])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
