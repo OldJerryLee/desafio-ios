@@ -76,9 +76,9 @@ final class StatementScreenView: UIView {
         stack.distribution = .fill
         stack.alignment = .center
         stack.backgroundColor = .clear
-        stack.layer.cornerRadius = 12
         stack.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
         stack.spacing = 32
+        stack.setCustomSpacing(0, after: futureStatementsButton)
         stack.isLayoutMarginsRelativeArrangement = true
         return stack
     }()

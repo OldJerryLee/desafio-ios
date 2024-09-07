@@ -28,11 +28,6 @@ class StatementScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        //TODO: RESOLVER QUANDO TIVER O BACKEND
-//        if statementScreen?.statementTableView.numberOfSections > 0, tableView.numberOfRows(inSection: 0) > 0 {
-//            let indexPath = IndexPath(row: 0, section: 0)
-//            statementScreen?.statementTableView.scrollToRow(at: indexPath, at: .top, animated: false)
-//        }
     }
     
     private func setupNavigationBar() {

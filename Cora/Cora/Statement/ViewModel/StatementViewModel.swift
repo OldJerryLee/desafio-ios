@@ -75,21 +75,17 @@ class StatementViewModel {
     }
     
     func formatDate(from dateString: String) -> String {
-        // Configurar o DateFormatter para analisar a data no formato original
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
         
-        // Converter a string para um objeto Date
         guard let date = inputFormatter.date(from: dateString) else {
             return "Data inválida"
         }
         
-        // Configurar o DateFormatter para formatar a data no formato desejado
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "d 'de' MMMM"
-        outputFormatter.locale = Locale(identifier: "pt_BR") // Configurar para o português
+        outputFormatter.locale = Locale(identifier: "pt_BR")
         
-        // Obter o nome do dia da semana
         let dayOfWeekFormatter = DateFormatter()
         dayOfWeekFormatter.dateFormat = "EEEE"
         dayOfWeekFormatter.locale = Locale(identifier: "pt_BR")
@@ -97,11 +93,9 @@ class StatementViewModel {
         var dayOfWeek = dayOfWeekFormatter.string(from: date)
         var monthName = outputFormatter.string(from: date)
         
-        // Corrigir a capitalização dos nomes
         dayOfWeek = dayOfWeek.capitalized
         monthName = monthName.capitalized
         
-        // Comparar se a data fornecida é a mesma que hoje
         let calendar = Calendar.current
         let isToday = calendar.isDateInToday(date)
         

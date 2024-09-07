@@ -29,10 +29,12 @@ class IntoScreenViewController: UIViewController {
 extension IntoScreenViewController: LoginScreenDelegate {
     func signupIntroButton() {
         print("Ir para Registrar")
+        let viewController: StatementDetailsViewController = StatementDetailsViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func loginIntroButton() {
-        let viewController:DocumentViewController = DocumentViewController()
+        let viewController: DocumentViewController = DocumentViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
