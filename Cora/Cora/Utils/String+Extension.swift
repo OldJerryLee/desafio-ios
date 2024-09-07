@@ -25,6 +25,23 @@ extension String {
         }
     }
     
+    func applyingCNPJFormat() -> String {
+        let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+        
+        guard numbers.count == 14 else {
+            return "CNPJ inválido"
+        }
+        
+        let formattedCNPJ = String(format: "%02d.%03d.%03d/%04d-%02d",
+                                   Int(numbers.prefix(2))!,
+                                   Int(numbers.dropFirst(2).prefix(3))!,
+                                   Int(numbers.dropFirst(5).prefix(3))!,
+                                   Int(numbers.dropFirst(8).prefix(4))!,
+                                   Int(numbers.dropFirst(12))!)
+        
+        return formattedCNPJ
+    }
+    
     var isCPF: Bool {
         let numbers = self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
         guard numbers.count == 11 else { return false }

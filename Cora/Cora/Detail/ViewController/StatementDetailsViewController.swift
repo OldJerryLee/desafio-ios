@@ -9,7 +9,9 @@ import UIKit
 
 class StatementDetailsViewController: UIViewController {
     
+    let userDefaultsManager = UserDefaultsManager()
     var statementDetailsScreen: StatementDetailsView?
+    private let viewModel: StatementDetailsViewModel = StatementDetailsViewModel()
     
     override func loadView() {
         self.statementDetailsScreen = StatementDetailsView()
@@ -19,7 +21,9 @@ class StatementDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.statementDetailsScreen?.delegate(delegate: self)
+        self.viewModel.delegate(delegate: self)
         setupNavigationBar()
+        viewModel.fetchStatementDetail(id: userDefaultsManager.getStatementId() ?? "", token: userDefaultsManager.getToken() ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +62,16 @@ class StatementDetailsViewController: UIViewController {
 
 extension StatementDetailsViewController: StatementDetailsViewDelegate {
     func shareDetailsButton() {
-        print("Compartilhar")
+        print("Compartilhar comprovante")
+    }
+}
+
+extension StatementDetailsViewController: StatementDetailsViewModelProtocol {
+    func success() {
+        statementDetailsScreen?.setDetailsInfo(statementDetails: viewModel.statemenDetails)
+    }
+    
+    func error(message: String) {
+        print(message)
     }
 }

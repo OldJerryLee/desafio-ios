@@ -29,8 +29,6 @@ class IntoScreenViewController: UIViewController {
 extension IntoScreenViewController: LoginScreenDelegate {
     func signupIntroButton() {
         print("Ir para Registrar")
-        let viewController: StatementDetailsViewController = StatementDetailsViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func loginIntroButton() {

@@ -9,7 +9,7 @@ import Foundation
 
 class StatementDetailsService {
     func getStatementDetails(id: String,token: String,completion: @escaping (Result<StatementDetailsResponse,NetworkError>) -> Void) {
-        let urlString: String = "https://api.challenge.stage.cora.com.br/challenge/list:\(id)"
+        let urlString: String = "https://api.challenge.stage.cora.com.br/challenge/details/:\(id)"
         let endpoint = Endpoint(url: urlString,
                                 method: .get,
                                 headers: ["apikey":"bf3f06390a035941138166583c1598c7","token":token])

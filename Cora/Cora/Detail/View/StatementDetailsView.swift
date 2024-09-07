@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol StatementDetailsViewDelegate:AnyObject{
+protocol StatementDetailsViewDelegate: AnyObject {
     func shareDetailsButton()
 }
 
 final class StatementDetailsView: UIView {
     
-    private weak var delegate:StatementDetailsViewDelegate?
+    private weak var delegate: StatementDetailsViewDelegate?
     
-    func delegate(delegate:StatementDetailsViewDelegate?){
+    func delegate(delegate: StatementDetailsViewDelegate?) {
         self.delegate = delegate
     }
     
@@ -30,7 +30,19 @@ final class StatementDetailsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var statementDetailImage:UIImageView = {
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var statementDetailImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "ic_arrow-up-out")
@@ -38,7 +50,7 @@ final class StatementDetailsView: UIView {
         return image
     }()
     
-    lazy var statementTitleBoldLabel:UILabel = {
+    lazy var statementTitleBoldLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -48,7 +60,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementValueTitleLabel:UILabel = {
+    lazy var statementValueTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -58,7 +70,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementValueLabel:UILabel = {
+    lazy var statementValueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -68,7 +80,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDateTitleLabel:UILabel = {
+    lazy var statementDateTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -78,7 +90,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDateLabel:UILabel = {
+    lazy var statementDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -88,7 +100,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromTitleLabel:UILabel = {
+    lazy var statementFromTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -98,7 +110,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromLabel:UILabel = {
+    lazy var statementFromLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -108,7 +120,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromDocumentLabel:UILabel = {
+    lazy var statementFromDocumentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -118,7 +130,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromBankLabel:UILabel = {
+    lazy var statementFromBankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -128,7 +140,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementFromAccountLabel:UILabel = {
+    lazy var statementFromAccountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -138,7 +150,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToTitleLabel:UILabel = {
+    lazy var statementToTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -148,7 +160,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToLabel:UILabel = {
+    lazy var statementToLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -158,7 +170,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToDocumentLabel:UILabel = {
+    lazy var statementToDocumentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -168,7 +180,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToBankLabel:UILabel = {
+    lazy var statementToBankLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -178,7 +190,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementToAccountLabel:UILabel = {
+    lazy var statementToAccountLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -188,7 +200,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDescriptionTitleLabel:UILabel = {
+    lazy var statementDescriptionTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -198,7 +210,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var statementDescriptionLabel:UILabel = {
+    lazy var statementDescriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraGrayText
@@ -208,7 +220,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var shareButtonLabel:UILabel = {
+    lazy var shareButtonLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraWhite
@@ -218,7 +230,7 @@ final class StatementDetailsView: UIView {
         return label
     }()
     
-    lazy var shareButtonImage:UIImageView = {
+    lazy var shareButtonImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "ic_share-ios")
@@ -227,137 +239,207 @@ final class StatementDetailsView: UIView {
     }()
     
     lazy var shareIntroButtonStack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [shareButtonLabel, UIView(),shareButtonImage])
+        let stack = UIStackView(arrangedSubviews: [shareButtonLabel, UIView(), shareButtonImage])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.distribution = .fill
         stack.alignment = .center
         stack.backgroundColor = .coraPink
         stack.layer.cornerRadius = 16
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRegisterButton))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tappedRegister))
         stack.addGestureRecognizer(tapGesture)
-        
-        stack.layoutMargins = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        stack.isUserInteractionEnabled = true
         stack.isLayoutMarginsRelativeArrangement = true
+        stack.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 20, bottom: 15, trailing: 20)
         return stack
     }()
+    
+    @objc private func tappedRegister() {
+        self.delegate?.shareDetailsButton()
+    }
     
     private func configBackGround(){
         self.backgroundColor = .coraWhite
     }
-        
-    private func configSuperView(){
-        self.addSubview(self.statementDetailImage)
-        self.addSubview(self.statementTitleBoldLabel)
-        
-        self.addSubview(self.statementValueTitleLabel)
-        self.addSubview(self.statementValueLabel)
-        
-        self.addSubview(self.statementDateTitleLabel)
-        self.addSubview(self.statementDateLabel)
-        
-        self.addSubview(self.statementFromTitleLabel)
-        self.addSubview(self.statementFromLabel)
-        self.addSubview(self.statementFromDocumentLabel)
-        self.addSubview(self.statementFromBankLabel)
-        self.addSubview(self.statementFromAccountLabel)
-        
-        self.addSubview(self.statementToTitleLabel)
-        self.addSubview(self.statementToLabel)
-        self.addSubview(self.statementToDocumentLabel)
-        self.addSubview(self.statementToBankLabel)
-        self.addSubview(self.statementToAccountLabel)
-        
-        self.addSubview(self.statementDescriptionTitleLabel)
-        self.addSubview(self.statementDescriptionLabel)
-        
-        self.addSubview(self.shareIntroButtonStack)
-    }
     
-    @objc private func tappedRegisterButton(){
-        self.delegate?.shareDetailsButton()
+    private func configSuperView() {
+        self.addSubview(scrollView)
+        self.scrollView.addSubview(contentView)
+        self.contentView.addSubview(statementDetailImage)
+        self.contentView.addSubview(statementTitleBoldLabel)
+        self.contentView.addSubview(statementValueTitleLabel)
+        self.contentView.addSubview(statementValueLabel)
+        self.contentView.addSubview(statementDateTitleLabel)
+        self.contentView.addSubview(statementDateLabel)
+        self.contentView.addSubview(statementFromTitleLabel)
+        self.contentView.addSubview(statementFromLabel)
+        self.contentView.addSubview(statementFromDocumentLabel)
+        self.contentView.addSubview(statementFromBankLabel)
+        self.contentView.addSubview(statementFromAccountLabel)
+        self.contentView.addSubview(statementToTitleLabel)
+        self.contentView.addSubview(statementToLabel)
+        self.contentView.addSubview(statementToDocumentLabel)
+        self.contentView.addSubview(statementToBankLabel)
+        self.contentView.addSubview(statementToAccountLabel)
+        self.contentView.addSubview(statementDescriptionTitleLabel)
+        self.contentView.addSubview(statementDescriptionLabel)
+        self.contentView.addSubview(shareIntroButtonStack)
     }
     
     private func setUpContraints(){
         NSLayoutConstraint.activate([
+            self.scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            self.scrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.scrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            self.statementDetailImage.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
-            self.statementDetailImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
+            self.contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
+            self.contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
+            self.contentView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor),
+            self.contentView.widthAnchor.constraint(equalTo: self.scrollView.widthAnchor),
+            
+            self.statementDetailImage.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 24),
+            self.statementDetailImage.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             self.statementDetailImage.heightAnchor.constraint(equalToConstant: 24),
             self.statementDetailImage.widthAnchor.constraint(equalToConstant: 24),
             
-            self.statementTitleBoldLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 32),
-            self.statementTitleBoldLabel.leadingAnchor.constraint(equalTo: self.statementDetailImage.trailingAnchor, constant: 8),
-            self.statementTitleBoldLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementTitleBoldLabel.centerYAnchor.constraint(equalTo: self.statementDetailImage.centerYAnchor),
+            self.statementTitleBoldLabel.leadingAnchor.constraint(equalTo: self.statementDetailImage.trailingAnchor, constant: 12),
+            self.statementTitleBoldLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -24),
             
-            self.statementValueTitleLabel.topAnchor.constraint(equalTo: self.statementTitleBoldLabel.bottomAnchor, constant: 24),
-            self.statementValueTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementValueTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementValueTitleLabel.topAnchor.constraint(equalTo: self.statementDetailImage.bottomAnchor, constant: 24),
+            self.statementValueTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementValueLabel.topAnchor.constraint(equalTo: self.statementValueTitleLabel.bottomAnchor, constant: 4),
-            self.statementValueLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementValueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementValueLabel.topAnchor.constraint(equalTo: self.statementValueTitleLabel.bottomAnchor, constant: 8),
+            self.statementValueLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
             self.statementDateTitleLabel.topAnchor.constraint(equalTo: self.statementValueLabel.bottomAnchor, constant: 24),
-            self.statementDateTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementDateTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementDateTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementDateLabel.topAnchor.constraint(equalTo: self.statementDateTitleLabel.bottomAnchor, constant: 4),
-            self.statementDateLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementDateLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementDateLabel.topAnchor.constraint(equalTo: self.statementDateTitleLabel.bottomAnchor, constant: 8),
+            self.statementDateLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
             self.statementFromTitleLabel.topAnchor.constraint(equalTo: self.statementDateLabel.bottomAnchor, constant: 24),
-            self.statementFromTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementFromTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementFromTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementFromLabel.topAnchor.constraint(equalTo: self.statementFromTitleLabel.bottomAnchor, constant: 4),
-            self.statementFromLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementFromLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementFromLabel.topAnchor.constraint(equalTo: self.statementFromTitleLabel.bottomAnchor, constant: 8),
+            self.statementFromLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementFromDocumentLabel.topAnchor.constraint(equalTo: self.statementFromLabel.bottomAnchor, constant: 4),
-            self.statementFromDocumentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementFromDocumentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementFromDocumentLabel.topAnchor.constraint(equalTo: self.statementFromLabel.bottomAnchor, constant: 8),
+            self.statementFromDocumentLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementFromBankLabel.topAnchor.constraint(equalTo: self.statementFromDocumentLabel.bottomAnchor),
-            self.statementFromBankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementFromBankLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementFromBankLabel.topAnchor.constraint(equalTo: self.statementFromDocumentLabel.bottomAnchor, constant: 8),
+            self.statementFromBankLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementFromAccountLabel.topAnchor.constraint(equalTo: self.statementFromBankLabel.bottomAnchor),
-            self.statementFromAccountLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementFromAccountLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementFromAccountLabel.topAnchor.constraint(equalTo: self.statementFromBankLabel.bottomAnchor, constant: 8),
+            self.statementFromAccountLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
             self.statementToTitleLabel.topAnchor.constraint(equalTo: self.statementFromAccountLabel.bottomAnchor, constant: 24),
-            self.statementToTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementToTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementToTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementToLabel.topAnchor.constraint(equalTo: self.statementToTitleLabel.bottomAnchor, constant: 4),
-            self.statementToLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementToLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementToLabel.topAnchor.constraint(equalTo: self.statementToTitleLabel.bottomAnchor, constant: 8),
+            self.statementToLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementToDocumentLabel.topAnchor.constraint(equalTo: self.statementToLabel.bottomAnchor, constant: 4),
-            self.statementToDocumentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementToDocumentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementToDocumentLabel.topAnchor.constraint(equalTo: self.statementToLabel.bottomAnchor, constant: 8),
+            self.statementToDocumentLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementToBankLabel.topAnchor.constraint(equalTo: self.statementToDocumentLabel.bottomAnchor),
-            self.statementToBankLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementToBankLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementToBankLabel.topAnchor.constraint(equalTo: self.statementToDocumentLabel.bottomAnchor, constant: 8),
+            self.statementToBankLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementToAccountLabel.topAnchor.constraint(equalTo: self.statementToBankLabel.bottomAnchor),
-            self.statementToAccountLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementToAccountLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementToAccountLabel.topAnchor.constraint(equalTo: self.statementToBankLabel.bottomAnchor, constant: 8),
+            self.statementToAccountLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
             self.statementDescriptionTitleLabel.topAnchor.constraint(equalTo: self.statementToAccountLabel.bottomAnchor, constant: 24),
-            self.statementDescriptionTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementDescriptionTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementDescriptionTitleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
             
-            self.statementDescriptionLabel.topAnchor.constraint(equalTo: self.statementDescriptionTitleLabel.bottomAnchor, constant: 4),
-            self.statementDescriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.statementDescriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
+            self.statementDescriptionLabel.topAnchor.constraint(equalTo: self.statementDescriptionTitleLabel.bottomAnchor, constant: 8),
+            self.statementDescriptionLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            self.statementDescriptionLabel.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -24),
             
-            self.shareIntroButtonStack.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor),
-            self.shareIntroButtonStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
-            self.shareIntroButtonStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -24),
-            self.shareIntroButtonStack.heightAnchor.constraint(equalToConstant: 64),
+            self.shareIntroButtonStack.topAnchor.constraint(equalTo: self.statementDescriptionLabel.bottomAnchor, constant: 32),
+            self.shareIntroButtonStack.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 24),
+            self.shareIntroButtonStack.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -24)
         ])
+        
+        self.contentView.bottomAnchor.constraint(equalTo: self.shareIntroButtonStack.bottomAnchor, constant: 24).isActive = true
+    }
+    
+    public func setDetailsInfo(statementDetails: StatementDetailsResponse?) {
+        if let statementDetails = statementDetails {
+            statementTitleBoldLabel.text = statementDetails.label
+            statementValueLabel.text = formatAmount(statementDetails.amount)
+            statementDateLabel.text = formatDate(from: statementDetails.dateEvent)
+            
+            statementFromLabel.text = statementDetails.sender.name
+            
+            let senderDocumentFormattedNumber = applyDocumentFormat(documentNumber: statementDetails.sender.documentNumber, documentType: statementDetails.sender.documentType)
+            
+            statementFromDocumentLabel.text = senderDocumentFormattedNumber
+            statementFromBankLabel.text = statementDetails.sender.bankName
+            statementFromAccountLabel.text = "Agência \(statementDetails.sender.agencyNumber) - Conta \(statementDetails.sender.accountNumber)-\(statementDetails.sender.accountNumberDigit)"
+            
+            let recipientDocumentFormattedNumber = applyDocumentFormat(documentNumber: statementDetails.recipient.documentNumber, documentType: statementDetails.recipient.documentType)
+            
+            statementToLabel.text = statementDetails.recipient.name
+            statementToDocumentLabel.text = recipientDocumentFormattedNumber
+            statementToBankLabel.text = statementDetails.recipient.bankName
+            statementToAccountLabel.text = "Agência \(statementDetails.recipient.agencyNumber) - Conta \(statementDetails.recipient.accountNumber)-\(statementDetails.recipient.accountNumberDigit)"
+            
+            statementDescriptionLabel.text = statementDetails.description
+        }
+    }
+    
+    private func applyDocumentFormat(documentNumber: String, documentType: String) -> String {
+        if documentType == "CPF" {
+            return "\(documentType) \(documentNumber.applyingCPFFormat())"
+        } else {
+            return "\(documentType) \(documentNumber.applyingCNPJFormat())"
+        }
+    }
+    
+    private func formatAmount(_ amount: Int) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = "R$ "
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.locale = Locale(identifier: "pt_BR")
+
+        let decimalAmount = Double(amount) / 100.0
+        if let formattedAmount = formatter.string(from: NSNumber(value: decimalAmount)) {
+            return formattedAmount
+        }
+        return "R$ 0,00"
+    }
+    
+    private func formatDate(from dateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        guard let date = inputFormatter.date(from: dateString) else {
+            return "Data inválida"
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.locale = Locale(identifier: "pt_BR")
+        
+        let dayOfWeekFormatter = DateFormatter()
+        dayOfWeekFormatter.dateFormat = "EEEE"
+        dayOfWeekFormatter.locale = Locale(identifier: "pt_BR")
+        
+        let dayOfWeek = dayOfWeekFormatter.string(from: date).capitalized
+        let formattedDate = dateFormatter.string(from: date)
+        
+        let calendar = Calendar.current
+        let isToday = calendar.isDateInToday(date)
+        
+        if isToday {
+            return "Hoje - \(formattedDate)"
+        } else {
+            return "\(dayOfWeek) - \(formattedDate)"
+        }
     }
 }
+

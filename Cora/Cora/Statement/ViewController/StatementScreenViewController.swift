@@ -101,6 +101,16 @@ extension StatementScreenViewController: StatementScreenViewDelegate {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension StatementScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let results = viewModel.statementList?.results[indexPath.section]
+        let statement = results?.items[indexPath.row]
+        
+        userDefaultsManager.saveStatementId(statement?.id ?? "")
+        
+        let viewController: StatementDetailsViewController = StatementDetailsViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.getNumberOfRowsinSection(section: section)
     }

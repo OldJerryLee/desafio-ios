@@ -13,6 +13,7 @@ class UserDefaultsManager {
     private let cpfKey = "userCPF"
     private let passwordKey = "userPassword"
     private let tokenKey = "userToken"
+    private let statementKey = "statementId"
     
     func saveCPF(_ cpf: String) {
         userDefaults.set(cpf, forKey: cpfKey)
@@ -48,5 +49,17 @@ class UserDefaultsManager {
     
     func clearToken() {
         userDefaults.removeObject(forKey: tokenKey)
+    }
+    
+    func saveStatementId(_ id: String) {
+        userDefaults.set(id, forKey: statementKey)
+    }
+    
+    func getStatementId() -> String? {
+        return userDefaults.string(forKey: statementKey)
+    }
+    
+    func clearStatementId() {
+        userDefaults.removeObject(forKey: statementKey)
     }
 }
