@@ -32,7 +32,7 @@ extension IntoScreenViewController: LoginScreenDelegate {
     }
     
     func loginIntroButton() {
-        let viewController:DocumentViewController = DocumentViewController()
+        let viewController: DocumentViewController = DocumentViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

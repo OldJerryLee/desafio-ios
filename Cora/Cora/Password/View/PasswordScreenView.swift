@@ -14,7 +14,7 @@ protocol PasswordScreenDelegate: AnyObject {
 
 final class PasswordScreenView: UIView {
     
-    lazy var passwordTitleLabel: UILabel = {
+    private lazy var passwordTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraDarkerGrayText
@@ -24,7 +24,7 @@ final class PasswordScreenView: UIView {
         return label
     }()
     
-    lazy var securityPasswordButton:UIButton = {
+    private lazy var securityPasswordButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "eye.slash")?.withRenderingMode(.alwaysTemplate), for: .normal)
@@ -50,7 +50,7 @@ final class PasswordScreenView: UIView {
         return tf
     }()
     
-    lazy var passwordNextButtonLabel:UILabel = {
+    private lazy var passwordNextButtonLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .coraWhite
@@ -60,7 +60,7 @@ final class PasswordScreenView: UIView {
         return label
     }()
     
-    lazy var passwordNextButtonImage:UIImageView = {
+    private lazy var passwordNextButtonImage:UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "rightVector")?.withRenderingMode(.alwaysTemplate)
@@ -69,7 +69,7 @@ final class PasswordScreenView: UIView {
         return image
     }()
     
-    lazy var passwordNextButtonStack: UIStackView = {
+    private lazy var passwordNextButtonStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [passwordNextButtonLabel, UIView(),passwordNextButtonImage])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
@@ -84,7 +84,7 @@ final class PasswordScreenView: UIView {
         return stack
     }()
     
-    lazy var forgotPasswordButton:UIButton = {
+    private lazy var forgotPasswordButton:UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Esqueci minha senha", for: .normal)

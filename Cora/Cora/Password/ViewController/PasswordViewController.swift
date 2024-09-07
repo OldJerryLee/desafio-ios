@@ -9,8 +9,8 @@ import UIKit
 
 class PasswordViewController: UIViewController {
 
-    var passwordScreen:PasswordScreenView?
-    let userDefaultsManager = UserDefaultsManager()
+    private var passwordScreen:PasswordScreenView?
+    private let userDefaultsManager = UserDefaultsManager()
     private let viewModel: PasswordViewModel = PasswordViewModel()
     
     override func loadView() {
@@ -59,36 +59,12 @@ class PasswordViewController: UIViewController {
         navigationItem.leftBarButtonItem = backBarButtonItem
     }
     
-//    private func setupNavigationBarItems() {
-//
-//
-//        setupLeftNavigationBar()
-//        setupRightNavigationBar()
-//    }
-    
-//    private func setupLeftNavigationBar() {
-//        let lockButton = UIButton(type: .system)
-//        lockButton.setImage(UIImage(named: "secure-cloud-50.png"), for: .normal)
-//
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: lockButton)
-//    }
-//
-//    private func setupRightNavigationBar() {
-//        let rebelButton = UIButton(type: .system)
-//        rebelButton.setImage(UIImage(named: "sw-rebel-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//
-//        let empireButton = UIButton(type: .system)
-//        empireButton.setImage(UIImage(named: "sw-empire-48.png")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//
-//
-//        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: rebelButton), UIBarButtonItem(customView: empireButton)]
-//    }
-    
     @objc private func backButtonPressed() {
         navigationController?.popViewController(animated: true)
     }
 }
 
+// MARK: - PasswordViewModelProtocol
 extension PasswordViewController: PasswordViewModelProtocol {
     func success(token: String) {
         userDefaultsManager.saveToken(token)

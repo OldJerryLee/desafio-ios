@@ -9,8 +9,8 @@ import UIKit
 
 class DocumentViewController: UIViewController {
 
-    var documentScreen: DocumentScreenView?
-    let userDefaultsManager = UserDefaultsManager()
+    private var documentScreen: DocumentScreenView?
+    private let userDefaultsManager = UserDefaultsManager()
     private let viewModel: DocumentViewModel = DocumentViewModel()
     
     override func loadView() {
@@ -63,6 +63,7 @@ class DocumentViewController: UIViewController {
     }
 }
 
+// MARK: DocumentScreenDelegate
 extension DocumentViewController: DocumentScreenDelegate {
     func nextButton() {
         userDefaultsManager.saveCPF(viewModel.getCPFNumbers())
@@ -71,7 +72,8 @@ extension DocumentViewController: DocumentScreenDelegate {
     }
 }
 
-extension DocumentViewController:UITextFieldDelegate{
+// MARK: UITextFieldDelegate
+extension DocumentViewController: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let currentText = textField.text ?? ""
         let newText = (currentText as NSString).replacingCharacters(in: range, with: string)

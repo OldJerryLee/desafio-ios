@@ -3,4 +3,54 @@
    uuid = "675E566B-AB4F-4BA2-AF4A-82FE031DD834"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DD3C0A22-D13C-454E-AD57-6D7D34B790B1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cora/Detail/View/StatementDetailsView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "setDetailsInfo(statementDetails:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DD3C0A22-D13C-454E-AD57-6D7D34B790B1 - 93543a6bf233d387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cora.StatementDetailsView.setDetailsInfo(statementDetails: Swift.Optional&lt;Cora.StatementDetailsResponse&gt;) -&gt; ()"
+                  moduleName = "Cora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fabriciopujol/Desktop/Cora/desafio-ios/Cora/Cora/Detail/View/StatementDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "DD3C0A22-D13C-454E-AD57-6D7D34B790B1 - 93543a6bf233d387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cora.StatementDetailsView.setDetailsInfo(statementDetails: Swift.Optional&lt;Cora.StatementDetailsResponse&gt;) -&gt; ()"
+                  moduleName = "Cora"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/fabriciopujol/Desktop/Cora/desafio-ios/Cora/Cora/Detail/View/StatementDetailsView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "148">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
