@@ -23,6 +23,7 @@ class StatementScreenViewController: UIViewController {
         self.statementScreen?.delegate(delegate: self)
         self.viewModel.delegate(delegate: self)
         setupNavigationBar()
+        statementScreen?.configTableViewProtocols(delegate: self, dataSource: self)
         viewModel.fetchStatementList(token: userDefaultsManager.getToken() ?? "")
     }
     
@@ -81,7 +82,7 @@ extension StatementScreenViewController: StatementViewModelProtocol {
     func success() {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            self.statementScreen?.configTableViewProtocols(delegate: self, dataSource: self)
+            self.viewModel.isLoading = false
             self.statementScreen?.statementTableView.reloadData()
         }
     }
@@ -102,20 +103,32 @@ extension StatementScreenViewController: StatementScreenViewDelegate {
 extension StatementScreenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let results = viewModel.statementList?.results[indexPath.section]
-        let statement = results?.items[indexPath.row]
-        
-        userDefaultsManager.saveStatementId(statement?.id ?? "")
-        
-        let viewController: StatementDetailsViewController = StatementDetailsViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        if !viewModel.isLoading {
+            let results = viewModel.statementList?.results[indexPath.section]
+            let statement = results?.items[indexPath.row]
+            
+            userDefaultsManager.saveStatementId(statement?.id ?? "")
+            
+            let viewController: StatementDetailsViewController = StatementDetailsViewController()
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if viewModel.isLoading {
+            return viewModel.numberOfRowsTemplate
+        }
+        
         return viewModel.getNumberOfRowsinSection(section: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if viewModel.isLoading {
+            return StatementTableViewCellTemplate()
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: StatementTableViewCell.identifier, for: indexPath) as? StatementTableViewCell
         let results = viewModel.statementList?.results[indexPath.section]
         let statement = results?.items[indexPath.row]
@@ -147,17 +160,20 @@ extension StatementScreenViewController: UITableViewDelegate, UITableViewDataSou
         headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: 32)
 
         let headerLabel = UILabel()
-        headerLabel.text = viewModel.formatDate(from: viewModel.statementList?.results[section].date ?? "")
-        headerLabel.textColor = .coraGrayText
-        headerLabel.font = UIFont.systemFont(ofSize: 12)
+        
+        if !viewModel.isLoading {
+            headerLabel.text = viewModel.formatDate(from: viewModel.statementList?.results[section].date ?? "")
+            headerLabel.textColor = .coraGrayText
+            headerLabel.font = UIFont.systemFont(ofSize: 12)
 
-        headerView.addSubview(headerLabel)
+            headerView.addSubview(headerLabel)
 
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            headerLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 24),
-            headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
-        ])
+            headerLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                headerLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 24),
+                headerLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor)
+            ])
+        }
 
         return headerView
     }
@@ -167,6 +183,11 @@ extension StatementScreenViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
+        
+        if viewModel.isLoading {
+            return viewModel.numberOfSectionsTemplate
+        }
+        
         return viewModel.numberOfSections
     }
 }

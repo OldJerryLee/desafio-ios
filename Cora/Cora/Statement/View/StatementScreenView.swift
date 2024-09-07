@@ -87,6 +87,7 @@ final class StatementScreenView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(StatementTableViewCell.self, forCellReuseIdentifier: StatementTableViewCell.identifier)
+        tableView.register(StatementTableViewCellTemplate.self, forCellReuseIdentifier: StatementTableViewCellTemplate.identifier)
         tableView.separatorStyle = .none
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0

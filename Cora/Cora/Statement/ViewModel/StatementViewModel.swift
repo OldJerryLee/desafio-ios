@@ -15,14 +15,30 @@ protocol StatementViewModelProtocol: AnyObject {
 class StatementViewModel {
     
     private var service: StatementService = StatementService()
-    var statementList: StatementListReponse?
     private weak var delegate: StatementViewModelProtocol?
+    
+    public var statementList: StatementListReponse?
+    
+    public var numberOfSections: Int {
+        return statementList?.itemsTotal ?? 0
+    }
+    
+    public var numberOfSectionsTemplate: Int {
+        return 2
+    }
+    
+    public var numberOfRowsTemplate: Int {
+        return 5
+    }
+    
+    public var isLoading: Bool = true
     
     public func delegate(delegate: StatementViewModelProtocol?) {
         self.delegate = delegate
     }
     
     public func fetchStatementList(token: String) {
+        
         service.getStatementList(token: token) { [weak self] result in
             guard let self else { return }
             switch result {
@@ -33,10 +49,6 @@ class StatementViewModel {
                 delegate?.error(message: failure.errorDescription ?? "")
             }
         }
-    }
-    
-    public var numberOfSections: Int {
-        return statementList?.itemsTotal ?? 0
     }
     
     public func getNumberOfRowsinSection(section: Int) -> Int {
