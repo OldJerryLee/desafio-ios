@@ -8,8 +8,8 @@
 import UIKit
 
 protocol StatementScreenViewDelegate: AnyObject {
-    func downloadButton()
     func filterButton()
+    func refreshAction()
 }
 
 final class StatementScreenView: UIView {
@@ -20,7 +20,7 @@ final class StatementScreenView: UIView {
         button.setTitle("Tudo", for: .normal)
         button.titleLabel?.font = UIFont(name: CustomFont.avenirBold, size: 14)
         button.setTitleColor(.coraPink, for: .normal)
-        button.addTarget(self, action: #selector(self.tappedForgotPasswordButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tappedFiltersButtons), for: .touchUpInside)
         return button
     }()
     
@@ -30,7 +30,7 @@ final class StatementScreenView: UIView {
         button.setTitle("Entrada", for: .normal)
         button.titleLabel?.font = UIFont(name: CustomFont.avenir, size: 14)
         button.setTitleColor(.coraGrayText, for: .normal)
-        button.addTarget(self, action: #selector(self.tappedForgotPasswordButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tappedFiltersButtons), for: .touchUpInside)
         return button
     }()
     
@@ -40,7 +40,7 @@ final class StatementScreenView: UIView {
         button.setTitle("Saída", for: .normal)
         button.titleLabel?.font = UIFont(name: CustomFont.avenir, size: 14)
         button.setTitleColor(.coraGrayText, for: .normal)
-        button.addTarget(self, action: #selector(self.tappedForgotPasswordButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tappedFiltersButtons), for: .touchUpInside)
         return button
     }()
     
@@ -50,7 +50,7 @@ final class StatementScreenView: UIView {
         button.setTitle("Futuro", for: .normal)
         button.titleLabel?.font = UIFont(name: CustomFont.avenir, size: 14)
         button.setTitleColor(.coraGrayText, for: .normal)
-        button.addTarget(self, action: #selector(self.tappedForgotPasswordButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tappedFiltersButtons), for: .touchUpInside)
         return button
     }()
     
@@ -58,7 +58,7 @@ final class StatementScreenView: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ic_filter")?.withRenderingMode(.alwaysTemplate), for: .normal)
-        button.addTarget(self, action: #selector(self.tappedForgotPasswordButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.tappedFiltersButtons), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
         button.tintColor = .coraPink
         return button
@@ -83,6 +83,12 @@ final class StatementScreenView: UIView {
         return stack
     }()
     
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+        return refreshControl
+    }()
+    
     lazy var statementTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,6 +98,8 @@ final class StatementScreenView: UIView {
         if #available(iOS 15.0, *) {
             tableView.sectionHeaderTopPadding = 0
         }
+        
+        tableView.refreshControl = refreshControl
         return tableView
     }()
     
@@ -142,7 +150,11 @@ final class StatementScreenView: UIView {
         ])
     }
     
-    @objc private func tappedForgotPasswordButton() {
-        print("filtros apertados")
+    @objc private func tappedFiltersButtons() {
+        delegate?.filterButton()
+    }
+    
+    @objc private func refreshAction() {
+        delegate?.refreshAction()
     }
 }

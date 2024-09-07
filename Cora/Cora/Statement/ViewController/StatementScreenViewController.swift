@@ -90,12 +90,16 @@ extension StatementScreenViewController: StatementViewModelProtocol {
 
 // MARK: - StatementScreenViewDelegate
 extension StatementScreenViewController: StatementScreenViewDelegate {
-    func downloadButton() {
-        print("Download Button")
+    func filterButton() {
+        print("Algum filtro foi clicado")
     }
     
-    func filterButton() {
-        print("Filter Button")
+    func refreshAction() {
+        print("Ação de refresh")
+        self.viewModel.isLoading = true
+        self.statementScreen?.statementTableView.reloadData()
+        self.statementScreen?.statementTableView.refreshControl?.endRefreshing()
+        viewModel.fetchStatementList(token: userDefaultsManager.getToken() ?? "")
     }
 }
 
