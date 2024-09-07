@@ -24,6 +24,7 @@ final class StatementDetailsView: UIView {
         self.configBackGround()
         self.configSuperView()
         self.setUpContraints()
+        self.startPlaceholder()
     }
     
     required init?(coder: NSCoder) {
@@ -387,6 +388,8 @@ final class StatementDetailsView: UIView {
             statementToAccountLabel.text = "Agência \(statementDetails.recipient.agencyNumber) - Conta \(statementDetails.recipient.accountNumber)-\(statementDetails.recipient.accountNumberDigit)"
             
             statementDescriptionLabel.text = statementDetails.description
+            
+            stopPlaceholder()
         }
     }
     
@@ -440,6 +443,88 @@ final class StatementDetailsView: UIView {
         } else {
             return "\(dayOfWeek) - \(formattedDate)"
         }
+    }
+    
+    func startPlaceholder() {
+        shareIntroButtonStack.isHidden = true
+        statementDetailImage.isHidden = true
+        
+        statementTitleBoldLabel.backgroundColor = .coraPlaceholdrGray
+        statementValueTitleLabel.backgroundColor = .coraPlaceholdrGray
+        statementValueLabel.backgroundColor = .coraPlaceholdrGray
+        statementDateTitleLabel.backgroundColor = .coraPlaceholdrGray
+        statementDateLabel.backgroundColor = .coraPlaceholdrGray
+        statementFromTitleLabel.backgroundColor = .coraPlaceholdrGray
+        statementFromLabel.backgroundColor = .coraPlaceholdrGray
+        statementFromDocumentLabel.backgroundColor = .coraPlaceholdrGray
+        statementFromBankLabel.backgroundColor = .coraPlaceholdrGray
+        statementFromAccountLabel.backgroundColor = .coraPlaceholdrGray
+        statementToTitleLabel.backgroundColor = .coraPlaceholdrGray
+        statementToLabel.backgroundColor = .coraPlaceholdrGray
+        statementToDocumentLabel.backgroundColor = .coraPlaceholdrGray
+        statementToBankLabel.backgroundColor = .coraPlaceholdrGray
+        statementToAccountLabel.backgroundColor = .coraPlaceholdrGray
+        statementDescriptionTitleLabel.backgroundColor = .coraPlaceholdrGray
+        statementDescriptionLabel.backgroundColor = .coraPlaceholdrGray
+        
+        statementTitleBoldLabel.textColor = .coraPlaceholdrGray
+        statementValueTitleLabel.textColor = .coraPlaceholdrGray
+        statementValueLabel.textColor = .coraPlaceholdrGray
+        statementDateTitleLabel.textColor = .coraPlaceholdrGray
+        statementDateLabel.textColor = .coraPlaceholdrGray
+        statementFromTitleLabel.textColor = .coraPlaceholdrGray
+        statementFromLabel.textColor = .coraPlaceholdrGray
+        statementFromDocumentLabel.textColor = .coraPlaceholdrGray
+        statementFromBankLabel.textColor = .coraPlaceholdrGray
+        statementFromAccountLabel.textColor = .coraPlaceholdrGray
+        statementToTitleLabel.textColor = .coraPlaceholdrGray
+        statementToLabel.textColor = .coraPlaceholdrGray
+        statementToDocumentLabel.textColor = .coraPlaceholdrGray
+        statementToBankLabel.textColor = .coraPlaceholdrGray
+        statementToAccountLabel.textColor = .coraPlaceholdrGray
+        statementDescriptionTitleLabel.textColor = .coraPlaceholdrGray
+        statementDescriptionLabel.textColor = .coraPlaceholdrGray
+    }
+    
+    func stopPlaceholder() {
+        shareIntroButtonStack.isHidden = false
+        statementDetailImage.isHidden = false
+        
+        statementTitleBoldLabel.backgroundColor = .clear
+        statementValueTitleLabel.backgroundColor = .clear
+        statementValueLabel.backgroundColor = .clear
+        statementDateTitleLabel.backgroundColor = .clear
+        statementDateLabel.backgroundColor = .clear
+        statementFromTitleLabel.backgroundColor = .clear
+        statementFromLabel.backgroundColor = .clear
+        statementFromDocumentLabel.backgroundColor = .clear
+        statementFromBankLabel.backgroundColor = .clear
+        statementFromAccountLabel.backgroundColor = .clear
+        statementToTitleLabel.backgroundColor = .clear
+        statementToLabel.backgroundColor = .clear
+        statementToDocumentLabel.backgroundColor = .clear
+        statementToBankLabel.backgroundColor = .clear
+        statementToAccountLabel.backgroundColor = .clear
+        statementDescriptionTitleLabel.backgroundColor = .clear
+        statementDescriptionLabel.backgroundColor = .clear
+        
+        statementTitleBoldLabel.textColor = .coraDarkerGrayText
+        statementValueTitleLabel.textColor = .coraDarkerGrayText
+        statementValueLabel.textColor = .coraDarkerGrayText
+        statementDateTitleLabel.textColor = .coraDarkerGrayText
+        statementDateLabel.textColor = .coraDarkerGrayText
+        statementFromTitleLabel.textColor = .coraDarkerGrayText
+        statementFromLabel.textColor = .coraDarkerGrayText
+        statementFromDocumentLabel.textColor = .coraGrayText
+        statementFromBankLabel.textColor = .coraGrayText
+        statementFromAccountLabel.textColor = .coraGrayText
+        statementToTitleLabel.textColor = .coraDarkerGrayText
+        statementToLabel.textColor = .coraDarkerGrayText
+        statementToDocumentLabel.textColor = .coraGrayText
+        statementToBankLabel.textColor = .coraGrayText
+        statementToAccountLabel.textColor = .coraGrayText
+        statementDescriptionTitleLabel.textColor = .coraDarkerGrayText
+        statementDescriptionLabel.textColor = .coraGrayText
     }
 }
 

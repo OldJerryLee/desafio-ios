@@ -15,4 +15,5 @@ extension UIColor {
     static let coraBlue: UIColor = UIColor(hex: "#1A93DA")
     static let coraDarkerGrayText: UIColor = UIColor(hex: "#3B3B3B")
     static let coraDisableButtonGray: UIColor = UIColor(hex: "#C7CBCF")
+    static let coraPlaceholdrGray: UIColor = UIColor(hex: "#DEE4E9")
 }

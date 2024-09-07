@@ -30,8 +30,8 @@
             filePath = "Cora/Detail/View/StatementDetailsView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "369"
-            endingLineNumber = "369"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
             landmarkName = "setDetailsInfo(statementDetails:)"
             landmarkType = "7">
             <Locations>
